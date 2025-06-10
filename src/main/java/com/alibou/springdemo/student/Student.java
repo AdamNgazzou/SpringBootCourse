@@ -1,8 +1,16 @@
 package com.alibou.springdemo.student;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "student")
 public class Student {
+
+    @Id
+    @GeneratedValue
+    private Integer id;
 
     private String firstName;
 
@@ -10,8 +18,10 @@ public class Student {
 
     private LocalDate dateOfBirth;
 
+    @Column(unique = true)
     private String email;
 
+    @Transient
     private int age;
 
     public String getFirstName() {
@@ -28,6 +38,14 @@ public class Student {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public LocalDate getDateOfBirth() {

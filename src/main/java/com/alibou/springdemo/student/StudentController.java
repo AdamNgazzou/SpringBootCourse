@@ -12,7 +12,7 @@ public class StudentController {
 
     // bean Field injection
     // @Autowired
-    private StudentService service ;
+    private final StudentService service ;
 
     // bean Constructor injection (recommended)
     @Autowired //you can remove Autowired in newer versions of Spring
